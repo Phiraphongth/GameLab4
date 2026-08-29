@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bc547ryip4kyl"]
+
+[ext_resource type="PackedScene" uid="uid://d27bcsmx82vfa" path="res://Scenes/Actors/enemy.tscn" id="1_spk00"]
+[ext_resource type="Script" uid="uid://bet43pec0yn52" path="res://Scenes/Actors/enemy_charger.gd" id="2_spk01"]
+[ext_resource type="Texture2D" uid="uid://cigakucd07u82" path="res://Assets/Spritesheet/spiky_roll.png" id="3_spk02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spk0"]
+atlas = ExtResource("3_spk02")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spk1"]
+atlas = ExtResource("3_spk02")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spk2"]
+atlas = ExtResource("3_spk02")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spk3"]
+atlas = ExtResource("3_spk02")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spk3")
+}],
+"loop": 1,
+"name": &"roll",
+"speed": 10.0
+}]
+
+[node name="Enemy" unique_id=600502477 instance=ExtResource("1_spk00")]
+script = ExtResource("2_spk01")
+speed = 55.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=587424215]
+position = Vector2(0, -22)
+scale = Vector2(1.25, 0.95)
+
+[node name="CollisionShape2D2" parent="HitArea" parent_id_path=PackedInt32Array(1115411835) index="0" unique_id=2008793250]
+position = Vector2(0, -22)
+scale = Vector2(1.25, 0.95)
+
+[node name="DeathParticles" parent="." index="2" unique_id=1072158612]
+position = Vector2(0, -24)
+color = Color(0.9411765, 0.6784314, 0.30588236, 1)
+
+[node name="Sprite" parent="." index="3" unique_id=1445111960]
+
+[node name="AnimateSprite" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=87960724]
+position = Vector2(0, -24)
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_spk")
+animation = &"roll"
+
+[node name="Ray" parent="Sprite" index="1" unique_id=1415425330]
+visible = false

@@ -27,6 +27,7 @@ var spawn_point = Vector2(0,0)
 var is_attacking = false
 var shoot_cooldown_timer = 0.0
 var can_damage = true
+var is_dying : bool = false   # กันไม่ให้ยิง hit_trap ซ้ำระหว่างที่กำลังเล่นแอนิเมชันตาย
 
 @onready var player_sprite : AnimationPlayer = $student/AnimationPlayer
 @onready var player_node = $student
@@ -74,7 +75,9 @@ func movement():
 			velocity.x = -move_speed
 		if Input.is_action_pressed("Right"):
 			velocity.x = move_speed
-	if velocity.y > 5000:
+	# ตกทะลุแมพ: ยิงสัญญาณครั้งเดียวพอ ถ้าไม่กันไว้จะยิงทุกเฟรมจนหัวใจหมดรวดเดียว
+	if velocity.y > 5000 and not is_dying:
+		is_dying = true
 		hit_trap.emit()
 	move_and_slide()
 
@@ -126,8 +129,10 @@ func death_tween():
 	tween.parallel().tween_property(self, "position", Vector2(position.x,position.y-100), 0.15)
 	await tween.finished
 	global_position = spawn_point
+	velocity = Vector2.ZERO        # ล้างความเร็วที่ค้างจากตอนตก
 	await get_tree().create_timer(0.3).timeout
 	movement_enabled = true
+	is_dying = false
 	AudioManager.respawn_sfx.play()
 	respawn_tween()
 
@@ -155,7 +160,8 @@ func damage_tween():
 
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(body):
-	if body.is_in_group("Traps"):
+	if body.is_in_group("Traps") and not is_dying:
+		is_dying = true
 		hit_trap.emit()
 	if !can_damage : return
 	if body.is_in_group("Enemy"):

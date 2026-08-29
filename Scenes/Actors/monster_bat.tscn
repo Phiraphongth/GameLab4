@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bficsrexh8x9z"]
+
+[ext_resource type="PackedScene" uid="uid://d27bcsmx82vfa" path="res://Scenes/Actors/enemy.tscn" id="1_bat00"]
+[ext_resource type="Script" uid="uid://bp0wk8zm9uqto" path="res://Scenes/Actors/enemy_flyer.gd" id="2_bat01"]
+[ext_resource type="Texture2D" uid="uid://bl23q6jikakyy" path="res://Assets/Spritesheet/bat_fly.png" id="3_bat02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bat0"]
+atlas = ExtResource("3_bat02")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bat1"]
+atlas = ExtResource("3_bat02")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bat2"]
+atlas = ExtResource("3_bat02")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bat3"]
+atlas = ExtResource("3_bat02")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bat0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bat1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bat2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bat3")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 9.0
+}]
+
+[node name="Enemy" unique_id=600502477 instance=ExtResource("1_bat00")]
+script = ExtResource("2_bat01")
+speed = 80.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=587424215]
+position = Vector2(0, -30)
+scale = Vector2(0.85, 0.62)
+
+[node name="CollisionShape2D2" parent="HitArea" parent_id_path=PackedInt32Array(1115411835) index="0" unique_id=2008793250]
+position = Vector2(0, -30)
+scale = Vector2(0.85, 0.62)
+
+[node name="DeathParticles" parent="." index="2" unique_id=1072158612]
+position = Vector2(0, -30)
+color = Color(0.45490196, 0.29803923, 0.6392157, 1)
+
+[node name="Sprite" parent="." index="3" unique_id=1445111960]
+
+[node name="AnimateSprite" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=87960724]
+position = Vector2(0, -32)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_bat")
+animation = &"fly"
+
+[node name="Ray" parent="Sprite" index="1" unique_id=1415425330]
+visible = false

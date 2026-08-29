@@ -1,12 +1,140 @@
-[gd_scene format=3 uid="uid://towe6jtciome"]
+[gd_scene format=4 uid="uid://towe6jtciome"]
 
 [ext_resource type="PackedScene" uid="uid://bjntpxb1c8jxn" path="res://Scenes/Levels/base_level.tscn" id="1_8r7r2"]
-[ext_resource type="PackedScene" uid="uid://b46lxwc5r3dy4" path="res://Scenes/Levels/game_win.tscn" id="2_dcfph"]
+[ext_resource type="PackedScene" uid="uid://bi00as4wjhafj" path="res://Scenes/Levels/level_04.tscn" id="2_dcfph"]
+[ext_resource type="TileSet" uid="uid://bvk6vx5i1riqd" path="res://Scenes/Prefabs/ground_tile_set.tres" id="3_t5fre"]
+[ext_resource type="PackedScene" uid="uid://dgs55gviv2ltp" path="res://clound.tscn" id="4_y6snv"]
+[ext_resource type="PackedScene" uid="uid://bs70y1kitjd3r" path="res://Scenes/Actors/enemy_spawn.tscn" id="5_xtkfo"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/coin.tscn" id="20_coin"]
+[ext_resource type="PackedScene" uid="uid://dabag2r57aued" path="res://Scenes/Prefabs/heal_potion.tscn" id="21_pot"]
+[ext_resource type="PackedScene" uid="uid://b48s52q3f64kl" path="res://Scenes/Actors/monster_mushroom.tscn" id="22_mush"]
+[ext_resource type="PackedScene" uid="uid://ek7hxkqp2wff" path="res://Scenes/Actors/monster_slim.tscn" id="23_slim"]
+[ext_resource type="PackedScene" uid="uid://cb8e62red7kc0" path="res://Scenes/Prefabs/trap_1.tscn" id="24_saw"]
+[ext_resource type="PackedScene" uid="uid://bp4l1nlnh8oq1" path="res://Scenes/Prefabs/trap_2.tscn" id="25_spear"]
+[ext_resource type="PackedScene" uid="uid://dlcogb7aghu56" path="res://spike.tscn" id="26_spike"]
+[ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="90_theme"]
+[ext_resource type="PackedScene" uid="uid://bficsrexh8x9z" path="res://Scenes/Actors/monster_bat.tscn" id="27_bat"]
 
 [node name="BaseLevel" unique_id=1997201631 instance=ExtResource("1_8r7r2")]
 
 [node name="LevelFinishDoor" parent="." index="0" unique_id=1788542095]
+position = Vector2(1472, 144)
 next_scene = ExtResource("2_dcfph")
+
+[node name="Coin" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="0" unique_id=2057409301 instance=ExtResource("20_coin")]
+position = Vector2(128, 300)
+
+[node name="Coin2" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="1" unique_id=561690233 instance=ExtResource("20_coin")]
+position = Vector2(288, 390)
+
+[node name="Coin3" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="2" unique_id=1407627408 instance=ExtResource("20_coin")]
+position = Vector2(448, 380)
+
+[node name="Coin4" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="3" unique_id=2141367541 instance=ExtResource("20_coin")]
+position = Vector2(608, 360)
+
+[node name="Coin5" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="4" unique_id=1691397723 instance=ExtResource("20_coin")]
+position = Vector2(768, 320)
+
+[node name="Coin6" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="5" unique_id=933136112 instance=ExtResource("20_coin")]
+position = Vector2(896, 250)
+
+[node name="Coin7" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="6" unique_id=398154596 instance=ExtResource("20_coin")]
+position = Vector2(1056, 250)
+
+[node name="Coin8" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="7" unique_id=1083406100 instance=ExtResource("20_coin")]
+position = Vector2(1216, 220)
+
+[node name="Coin9" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="8" unique_id=2046043142 instance=ExtResource("20_coin")]
+position = Vector2(1344, 130)
+
+[node name="Coin10" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="9" unique_id=494417774 instance=ExtResource("20_coin")]
+position = Vector2(1408, 130)
+
+[node name="HealPotion" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="10" unique_id=468703746 instance=ExtResource("21_pot")]
+position = Vector2(832, 260)
+
+[node name="Mushroom" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="0" unique_id=197894525 instance=ExtResource("22_mush")]
+position = Vector2(1440, 150)
+speed = 40.0
+
+[node name="Mushroom2" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="1" unique_id=936063676 instance=ExtResource("22_mush")]
+position = Vector2(745, 360)
+speed = 45.0
+
+[node name="Slime" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="2" unique_id=31559086 instance=ExtResource("23_slim")]
+position = Vector2(813, 358)
+speed = 30.0
+
+[node name="Mushroom3" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="3" unique_id=1314143037 instance=ExtResource("22_mush")]
+position = Vector2(1504, 150)
+speed = 45.0
+
+[node name="Slime2" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="4" unique_id=1052130427 instance=ExtResource("23_slim")]
+position = Vector2(896, 280)
+speed = 35.0
+
+[node name="Mushroom4" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="5" unique_id=1303227432 instance=ExtResource("22_mush")]
+position = Vector2(1088, 220)
+speed = 50.0
+
+[node name="Mushroom5" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="6" unique_id=1829016262 instance=ExtResource("22_mush")]
+position = Vector2(1312, 150)
+speed = 50.0
 
 [node name="Label" parent="UserInterface" parent_id_path=PackedInt32Array(1799764374) index="1" unique_id=1103718868]
 text = "Level 3"
+
+[node name="Label" type="Label" parent="Text" parent_id_path=PackedInt32Array(416249055) index="0" unique_id=1025470852]
+offset_left = 40.0
+offset_top = 220.0
+offset_right = 470.0
+offset_bottom = 274.0
+theme = ExtResource("90_theme")
+text = "กระโดดข้ามบ่อน้ำ ตกลงไปคือตาย"
+
+[node name="Label2" type="Label" parent="Text" parent_id_path=PackedInt32Array(416249055) index="1" unique_id=414477650]
+offset_left = 620.0
+offset_top = 480.0
+offset_right = 1040.0
+offset_bottom = 534.0
+theme = ExtResource("90_theme")
+text = "ไต่ชานขึ้นไปทีละขั้น ระวังบ่อลาวาข้างล่าง"
+
+[node name="Label3" type="Label" parent="Text" parent_id_path=PackedInt32Array(416249055) index="2" unique_id=1123327483]
+offset_left = 1150.0
+offset_top = 320.0
+offset_right = 1560.0
+offset_bottom = 374.0
+theme = ExtResource("90_theme")
+text = "เมฆลอยช่วยเก็บเหรียญกลางบ่อลาวาได้"
+
+[node name="Ground" type="TileMapLayer" parent="." index="8" unique_id=1369118912]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+/wEAAAADAAEAAAAYAAEAAAAGAAAAAAAZAAEAAAAGAAAAAAD+/wIAAAADAAEAAAAYAAIAAAAGAAAAAAAZAAIAAAAGAAAAAAD+/wMAAAADAAEAAAAUAAMAAAAHAAEAAAAVAAMAAAAHAAEAAAAWAAMAAAAGAAAAAAAXAAMAAAAGAAAAAAAYAAMAAAAGAAAAAAAZAAMAAAAGAAAAAAD+/wQAAAADAAEAAAAQAAQAAAAHAAEAAAARAAQAAAAHAAEAAAAUAAQAAAADAAEAAAAVAAQAAAADAAEAAAAWAAQAAAAGAAAAAAAXAAQAAAAGAAAAAAAYAAQAAAAGAAAAAAAZAAQAAAAGAAAAAAD+/wUAAAADAAEAAAD//wUAAAADAAEAAAANAAUAAAAHAAEAAAAOAAUAAAAHAAEAAAAQAAUAAAADAAEAAAARAAUAAAADAAEAAAAUAAUAAAADAAEAAAAVAAUAAAADAAEAAAAWAAUAAAAGAAAAAAAXAAUAAAAGAAAAAAAYAAUAAAAGAAAAAAAZAAUAAAAGAAAAAAD+/wYAAAADAAEAAAD//wYAAAADAAEAAAAAAAYAAAADAAEAAAALAAYAAAAHAAEAAAAMAAYAAAAHAAEAAAANAAYAAAADAAEAAAAOAAYAAAADAAEAAAAQAAYAAAADAAEAAAARAAYAAAADAAEAAAAUAAYAAAADAAEAAAAVAAYAAAADAAEAAAAWAAYAAAAGAAAAAAAXAAYAAAAGAAAAAAAYAAYAAAAGAAAAAAAZAAYAAAAGAAAAAAD+/wcAAAAAAAEAAAD//wcAAAAAAAEAAAAAAAcAAAAAAAEAAAABAAcAAAAAAAEAAAACAAcAAAAAAAEAAAADAAcAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAcAAAAAAAEAAAAGAAcAAAAEAAEAAAAHAAcAAAAEAAEAAAAIAAcAAAAAAAEAAAAJAAcAAAAAAAEAAAAKAAcAAAAAAAEAAAALAAcAAAADAAEAAAAMAAcAAAADAAEAAAANAAcAAAADAAEAAAAOAAcAAAADAAEAAAAPAAcAAAAFAAEAAAAQAAcAAAADAAEAAAARAAcAAAADAAEAAAASAAcAAAAFAAEAAAATAAcAAAAFAAEAAAAUAAcAAAADAAEAAAAVAAcAAAADAAEAAAAWAAcAAAAGAAAAAAAXAAcAAAAGAAAAAAAYAAcAAAAGAAAAAAAZAAcAAAAGAAAAAAD+/wgAAAADAAEAAAD//wgAAAADAAEAAAAGAAgAAAAEAAEAAAAHAAgAAAAEAAEAAAALAAgAAAADAAEAAAAMAAgAAAADAAEAAAANAAgAAAADAAEAAAAOAAgAAAADAAEAAAAPAAgAAAAFAAEAAAAQAAgAAAADAAEAAAARAAgAAAADAAEAAAASAAgAAAAFAAEAAAATAAgAAAAFAAEAAAAUAAgAAAADAAEAAAAVAAgAAAADAAEAAAAWAAgAAAAGAAAAAAAXAAgAAAAGAAAAAAAYAAgAAAAGAAAAAAAZAAgAAAAGAAAAAAD+/wkAAAADAAEAAAD//wkAAAADAAEAAAAGAAkAAAAEAAEAAAAHAAkAAAAEAAEAAAALAAkAAAADAAEAAAAMAAkAAAADAAEAAAANAAkAAAADAAEAAAAOAAkAAAADAAEAAAAPAAkAAAAFAAEAAAAQAAkAAAADAAEAAAARAAkAAAADAAEAAAASAAkAAAAFAAEAAAATAAkAAAAFAAEAAAAUAAkAAAADAAEAAAAVAAkAAAADAAEAAAAWAAkAAAAGAAAAAAAXAAkAAAAGAAAAAAAYAAkAAAAGAAAAAAAZAAkAAAAGAAAAAAD+/woAAAADAAEAAAD//woAAAADAAEAAAALAAoAAAADAAEAAAAMAAoAAAADAAEAAAANAAoAAAADAAEAAAAOAAoAAAADAAEAAAAQAAoAAAADAAEAAAARAAoAAAADAAEAAAAUAAoAAAADAAEAAAAVAAoAAAADAAEAAAAWAAoAAAAGAAAAAAAXAAoAAAAGAAAAAAAYAAoAAAAGAAAAAAAZAAoAAAAGAAAAAAD+/wsAAAADAAEAAAD//wsAAAADAAEAAAALAAsAAAADAAEAAAAMAAsAAAADAAEAAAANAAsAAAADAAEAAAAOAAsAAAADAAEAAAAQAAsAAAADAAEAAAARAAsAAAADAAEAAAAUAAsAAAADAAEAAAAVAAsAAAADAAEAAAAWAAsAAAAGAAAAAAAXAAsAAAAGAAAAAAAYAAsAAAAGAAAAAAAZAAsAAAAGAAAAAAD+/wwAAAADAAEAAAD//wwAAAADAAEAAAALAAwAAAADAAEAAAAMAAwAAAADAAEAAAANAAwAAAADAAEAAAAOAAwAAAADAAEAAAAQAAwAAAADAAEAAAARAAwAAAADAAEAAAAUAAwAAAADAAEAAAAVAAwAAAADAAEAAAAWAAwAAAAGAAAAAAAXAAwAAAAGAAAAAAAYAAwAAAAGAAAAAAAZAAwAAAAGAAAAAAD+/w0AAAADAAEAAAD//w0AAAADAAEAAAALAA0AAAADAAEAAAAMAA0AAAADAAEAAAANAA0AAAADAAEAAAAOAA0AAAADAAEAAAAQAA0AAAADAAEAAAARAA0AAAADAAEAAAAUAA0AAAADAAEAAAAVAA0AAAADAAEAAAAWAA0AAAAGAAAAAAAXAA0AAAAGAAAAAAAYAA0AAAAGAAAAAAAZAA0AAAAGAAAAAAA=")
+tile_set = ExtResource("3_t5fre")
+
+[node name="AnimatableBody2D" parent="." index="9" unique_id=630635185 instance=ExtResource("4_y6snv")]
+position = Vector2(1216, 300)
+
+[node name="EnemySpawn" parent="." index="10" unique_id=1463539825 instance=ExtResource("5_xtkfo")]
+respawn_onstart = false
+respawn_time = Array[int]([6, 10])
+speed_range = Array[int]([60, 70, 80])
+enemy_scenes = Array[PackedScene]([ExtResource("27_bat")])
+position = Vector2(608, 290)
+max_instance = 1
+
+[node name="EnemySpawn2" parent="." index="11" unique_id=334018435 instance=ExtResource("5_xtkfo")]
+position = Vector2(948, 300)
+max_instance = 1
+
+[node name="Saw2" parent="." index="12" unique_id=1917859573 instance=ExtResource("24_saw")]
+position = Vector2(1569, 21)
+
+[node name="Spear" parent="." index="13" unique_id=39697677 instance=ExtResource("25_spear")]
+position = Vector2(727, 72)
+
+[node name="SpikeStrip" parent="." index="14" unique_id=1863895022 instance=ExtResource("26_spike")]
+position = Vector2(608, 401)
+scale = Vector2(0.6, 0.7)

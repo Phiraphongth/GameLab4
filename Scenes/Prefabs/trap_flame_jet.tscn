@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bcd41y9puv6o6"]
+
+[ext_resource type="Script" uid="uid://bl828v0zavfrx" path="res://Scenes/Prefabs/trap_flame_jet.gd" id="1_fjt00"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="2_fjt01"]
+[ext_resource type="Texture2D" uid="uid://621as0fwjhum" path="res://Assets/Textures/star_07.png" id="3_fjt02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjt"]
+size = Vector2(44, 128)
+
+[sub_resource type="Curve" id="Curve_fjt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fjt"]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray(1, 0.9254902, 0.4, 1, 0.972549, 0.44313726, 0.09803922, 0.85, 0.6039216, 0.14901961, 0.03137255, 0)
+
+[node name="TrapFlameJet" type="Area2D" unique_id=1998473921]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fjt00")
+
+[node name="Nozzle" type="Sprite2D" parent="." unique_id=1024577190]
+position = Vector2(0, -12)
+scale = Vector2(0.85, 0.4)
+texture = ExtResource("2_fjt01")
+hframes = 14
+vframes = 7
+frame = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735042228]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_fjt")
+
+[node name="Flame" type="Node2D" parent="." unique_id=1268490334]
+visible = false
+
+[node name="FlameBody" type="Sprite2D" parent="Flame" unique_id=1616270125]
+position = Vector2(0, -32)
+scale = Vector2(0.85, 1)
+texture = ExtResource("2_fjt01")
+hframes = 14
+vframes = 7
+frame = 19
+
+[node name="FlameTop" type="Sprite2D" parent="Flame" unique_id=1889423102]
+position = Vector2(0, -96)
+scale = Vector2(0.85, 1)
+texture = ExtResource("2_fjt01")
+hframes = 14
+vframes = 7
+frame = 5
+
+[node name="Sparks" type="CPUParticles2D" parent="." unique_id=1078213377]
+position = Vector2(0, -18)
+emitting = false
+amount = 26
+texture = ExtResource("3_fjt02")
+lifetime = 0.7
+speed_scale = 1.2
+lifetime_randomness = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(18, 2)
+direction = Vector2(0, -1)
+spread = 12.0
+gravity = Vector2(0, -260)
+initial_velocity_min = 160.0
+initial_velocity_max = 340.0
+damping_min = 0.4
+damping_max = 0.9
+scale_amount_min = 0.08
+scale_amount_max = 0.22
+scale_amount_curve = SubResource("Curve_fjt")
+color_ramp = SubResource("Gradient_fjt")

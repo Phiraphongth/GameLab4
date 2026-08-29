@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bky3h9bw2amb4"]
+
+[ext_resource type="Script" uid="uid://bnq444tmgeafv" path="res://Scenes/Prefabs/trap_falling_spike.gd" id="1_fsp00"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="2_fsp01"]
+[ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_fsp02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fspBody"]
+size = Vector2(60, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fspZone"]
+size = Vector2(52, 420)
+
+[sub_resource type="Curve" id="Curve_fspDust"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fspDust"]
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(0.72156864, 0.7019608, 0.6666667, 1, 0.72156864, 0.7019608, 0.6666667, 0)
+
+[node name="TrapFallingSpike" type="CharacterBody2D" unique_id=1841207755 groups=["Traps"]]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_fsp00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1229384622]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_fspBody")
+
+[node name="Body" type="Node2D" parent="." unique_id=1064952293]
+
+[node name="Block" type="Sprite2D" parent="Body" unique_id=1980336241]
+texture = ExtResource("2_fsp01")
+hframes = 14
+vframes = 7
+frame = 60
+
+[node name="Spikes" type="Sprite2D" parent="Body" unique_id=1717904048]
+position = Vector2(0, 64)
+rotation = 3.1415927
+texture = ExtResource("2_fsp01")
+hframes = 14
+vframes = 7
+frame = 70
+
+[node name="ImpactDust" type="CPUParticles2D" parent="." unique_id=1300961874]
+position = Vector2(0, 64)
+emitting = false
+amount = 16
+texture = ExtResource("3_fsp02")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.95
+emission_shape = 3
+emission_rect_extents = Vector2(30, 2)
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.3
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_fspDust")
+color_ramp = SubResource("Gradient_fspDust")
+
+[node name="DetectZone" type="Area2D" parent="." unique_id=1122843986]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectZone" unique_id=1500473279]
+position = Vector2(0, 280)
+shape = SubResource("RectangleShape2D_fspZone")
+
+[connection signal="body_entered" from="DetectZone" to="." method="_on_detect_zone_body_entered"]

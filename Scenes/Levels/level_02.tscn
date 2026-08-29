@@ -1,13 +1,23 @@
-[gd_scene format=3 uid="uid://cppg5yoxwv0dy"]
+[gd_scene format=4 uid="uid://cppg5yoxwv0dy"]
 
 [ext_resource type="PackedScene" uid="uid://bjntpxb1c8jxn" path="res://Scenes/Levels/base_level.tscn" id="1_3fxa7"]
 [ext_resource type="Texture2D" uid="uid://dkc8rdq3j7ppf" path="res://Assets/BG/mountainA.png" id="2_2e1f7"]
 [ext_resource type="PackedScene" uid="uid://towe6jtciome" path="res://Scenes/Levels/level_03.tscn" id="2_q8k1b"]
+[ext_resource type="TileSet" uid="uid://bvk6vx5i1riqd" path="res://Scenes/Prefabs/ground_tile_set.tres" id="4_51x33"]
+[ext_resource type="PackedScene" uid="uid://bs70y1kitjd3r" path="res://Scenes/Actors/enemy_spawn.tscn" id="5_f8isr"]
+[ext_resource type="PackedScene" uid="uid://dlcogb7aghu56" path="res://spike.tscn" id="6_f8isr"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/coin.tscn" id="20_coin"]
+[ext_resource type="PackedScene" uid="uid://dabag2r57aued" path="res://Scenes/Prefabs/heal_potion.tscn" id="21_pot"]
+[ext_resource type="PackedScene" uid="uid://b48s52q3f64kl" path="res://Scenes/Actors/monster_mushroom.tscn" id="22_mush"]
+[ext_resource type="PackedScene" uid="uid://ek7hxkqp2wff" path="res://Scenes/Actors/monster_slim.tscn" id="23_slim"]
+[ext_resource type="PackedScene" uid="uid://cb8e62red7kc0" path="res://Scenes/Prefabs/trap_1.tscn" id="24_saw"]
+[ext_resource type="PackedScene" uid="uid://bp4l1nlnh8oq1" path="res://Scenes/Prefabs/trap_2.tscn" id="25_spear"]
+[ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="90_theme"]
 
 [node name="BaseLevel" unique_id=1997201631 instance=ExtResource("1_3fxa7")]
 
 [node name="LevelFinishDoor" parent="." index="0" unique_id=1788542095]
-position = Vector2(1118, 400)
+position = Vector2(1376, 208)
 next_scene = ExtResource("2_q8k1b")
 
 [node name="Background1" parent="Level" parent_id_path=PackedInt32Array(1752500785) index="0" unique_id=1072429833]
@@ -21,5 +31,91 @@ position = Vector2(270.25, 217.24998)
 scale = Vector2(2.1334267, 2.4474432)
 texture = ExtResource("2_2e1f7")
 
+[node name="Coin" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="0" unique_id=689884798 instance=ExtResource("20_coin")]
+position = Vector2(184, 280)
+
+[node name="Coin2" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="1" unique_id=1529218198 instance=ExtResource("20_coin")]
+position = Vector2(288, 200)
+
+[node name="Coin3" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="2" unique_id=775172102 instance=ExtResource("20_coin")]
+position = Vector2(416, 280)
+
+[node name="Coin4" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="3" unique_id=769913760 instance=ExtResource("20_coin")]
+position = Vector2(576, 330)
+
+[node name="Coin5" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="4" unique_id=652747705 instance=ExtResource("20_coin")]
+position = Vector2(768, 330)
+
+[node name="Coin6" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="5" unique_id=2100364309 instance=ExtResource("20_coin")]
+position = Vector2(1056, 340)
+
+[node name="Coin7" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="6" unique_id=141303364 instance=ExtResource("20_coin")]
+position = Vector2(1216, 320)
+
+[node name="Coin8" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="7" unique_id=1368276856 instance=ExtResource("20_coin")]
+position = Vector2(1312, 260)
+
+[node name="Coin9" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="8" unique_id=54692443 instance=ExtResource("20_coin")]
+position = Vector2(1376, 150)
+
+[node name="HealPotion" parent="Coins" parent_id_path=PackedInt32Array(1530662565) index="9" unique_id=1705474190 instance=ExtResource("21_pot")]
+position = Vector2(1120, 400)
+
+[node name="Mushroom" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="0" unique_id=87918001 instance=ExtResource("22_mush")]
+position = Vector2(342, 248)
+speed = 40.0
+
+[node name="Slime" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="1" unique_id=716621961 instance=ExtResource("23_slim")]
+position = Vector2(800, 330)
+speed = 35.0
+
+[node name="Mushroom2" parent="Enemies" parent_id_path=PackedInt32Array(1580630701) index="2" unique_id=269153032 instance=ExtResource("22_mush")]
+position = Vector2(1216, 330)
+speed = 50.0
+
 [node name="Label" parent="UserInterface" parent_id_path=PackedInt32Array(1799764374) index="1" unique_id=1103718868]
 text = "Level 2"
+
+[node name="Label2" type="Label" parent="Text" parent_id_path=PackedInt32Array(416249055) index="0" unique_id=444998908]
+offset_left = 470.0
+offset_top = 250.0
+offset_right = 880.0
+offset_bottom = 304.0
+theme = ExtResource("90_theme")
+text = "กระโดดข้ามหลุม อย่าตกลงไป"
+
+[node name="Label3" type="Label" parent="Text" parent_id_path=PackedInt32Array(416249055) index="1" unique_id=1137777558]
+offset_left = 1120.0
+offset_top = 110.0
+offset_right = 1560.0
+offset_bottom = 164.0
+theme = ExtResource("90_theme")
+text = "ปีนหอคอยทางขวาไปหาประตู"
+
+[node name="Ground" type="TileMapLayer" parent="." index="8" unique_id=692271812]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAWAAEAAAAGAAAAAAAXAAEAAAAGAAAAAAAWAAIAAAAGAAAAAAAXAAIAAAAGAAAAAAAWAAMAAAAGAAAAAAAXAAMAAAAGAAAAAAAEAAQAAAAGAAAAAAAFAAQAAAAGAAAAAAAVAAQAAAAGAAEAAAAWAAQAAAAGAAAAAAAXAAQAAAAGAAAAAAD+/wUAAAAGAAAAAAD//wUAAAAGAAAAAAADAAUAAAAGAAAAAAAEAAUAAAAGAAAAAAAFAAUAAAAGAAEAAAAGAAUAAAAGAAAAAAAUAAUAAAAGAAEAAAAVAAUAAAAGAAEAAAAWAAUAAAAGAAAAAAAXAAUAAAAGAAAAAAD+/wYAAAAGAAAAAAD//wYAAAAGAAEAAAAAAAYAAAAGAAEAAAABAAYAAAAGAAAAAAACAAYAAAAGAAEAAAADAAYAAAAGAAEAAAAEAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAHAAYAAAAGAAAAAAALAAYAAAAGAAAAAAAMAAYAAAAGAAAAAAANAAYAAAAGAAAAAAAOAAYAAAAGAAAAAAASAAYAAAAGAAEAAAATAAYAAAAGAAEAAAAUAAYAAAAGAAEAAAAVAAYAAAAGAAEAAAAWAAYAAAAGAAAAAAAXAAYAAAAGAAAAAAD+/wcAAAAGAAAAAAD//wcAAAAGAAAAAAAAAAcAAAAGAAEAAAABAAcAAAAGAAEAAAACAAcAAAAGAAEAAAADAAcAAAAGAAAAAAAEAAcAAAAGAAAAAAAFAAcAAAAGAAAAAAAGAAcAAAAGAAEAAAAHAAcAAAAGAAAAAAAKAAcAAAAGAAEAAAALAAcAAAAGAAEAAAAMAAcAAAAGAAAAAAANAAcAAAAGAAAAAAAOAAcAAAAGAAEAAAAPAAcAAAAGAAAAAAAQAAcAAAAAAAEAAAARAAcAAAAAAAEAAAASAAcAAAAAAAEAAAATAAcAAAAGAAEAAAAUAAcAAAAGAAEAAAAVAAcAAAAGAAAAAAAWAAcAAAAGAAAAAAAXAAcAAAAGAAAAAAD+/wgAAAADAAEAAAD//wgAAAADAAEAAAAGAAgAAAADAAEAAAAHAAgAAAADAAEAAAALAAgAAAADAAEAAAAMAAgAAAADAAEAAAARAAgAAAADAAEAAAASAAgAAAADAAEAAAATAAgAAAAGAAAAAAAUAAgAAAAGAAAAAAAVAAgAAAAGAAAAAAAWAAgAAAAGAAAAAAAXAAgAAAAGAAAAAAD+/wkAAAADAAEAAAD//wkAAAADAAEAAAAGAAkAAAADAAEAAAAHAAkAAAADAAEAAAALAAkAAAADAAEAAAAMAAkAAAADAAEAAAARAAkAAAADAAEAAAASAAkAAAADAAEAAAATAAkAAAAGAAAAAAAUAAkAAAAGAAAAAAAVAAkAAAAGAAAAAAAWAAkAAAAGAAAAAAAXAAkAAAAGAAAAAAD+/woAAAADAAEAAAD//woAAAADAAEAAAAGAAoAAAADAAEAAAAHAAoAAAADAAEAAAALAAoAAAADAAEAAAAMAAoAAAADAAEAAAARAAoAAAADAAEAAAASAAoAAAADAAEAAAD+/wsAAAADAAEAAAD//wsAAAADAAEAAAAGAAsAAAADAAEAAAAHAAsAAAADAAEAAAALAAsAAAADAAEAAAAMAAsAAAADAAEAAAARAAsAAAADAAEAAAASAAsAAAADAAEAAAD+/wwAAAADAAEAAAD//wwAAAADAAEAAAAGAAwAAAADAAEAAAAHAAwAAAADAAEAAAALAAwAAAADAAEAAAAMAAwAAAADAAEAAAARAAwAAAADAAEAAAASAAwAAAADAAEAAAD+/w0AAAADAAEAAAD//w0AAAADAAEAAAAGAA0AAAADAAEAAAAHAA0AAAADAAEAAAALAA0AAAADAAEAAAAMAA0AAAADAAEAAAARAA0AAAADAAEAAAASAA0AAAADAAEAAAA=")
+tile_set = ExtResource("4_51x33")
+
+[node name="EnemySpawn" parent="." index="9" unique_id=1463539825 instance=ExtResource("5_f8isr")]
+position = Vector2(992, 390)
+enemy_scenes = Array[PackedScene]([ExtResource("23_slim")])
+speed_range = Array[int]([40, 50, 60])
+respawn_time = Array[int]([8, 12])
+respawn_onstart = false
+
+[node name="EnemySpawn2" parent="." index="10" unique_id=1327531730 instance=ExtResource("5_f8isr")]
+position = Vector2(858, 358)
+
+[node name="Area2D" parent="." index="11" unique_id=1545363355 instance=ExtResource("6_f8isr")]
+position = Vector2(1056, 401)
+scale = Vector2(0.61034477, 0.8237575)
+
+[node name="Saw" parent="." index="12" unique_id=1790941812 instance=ExtResource("24_saw")]
+position = Vector2(572, 483)
+
+[node name="Saw2" parent="." index="13" unique_id=879183476 instance=ExtResource("24_saw")]
+position = Vector2(-89, 278)
+
+[node name="Spear" parent="." index="14" unique_id=1824500393 instance=ExtResource("25_spear")]
+position = Vector2(814, -43)

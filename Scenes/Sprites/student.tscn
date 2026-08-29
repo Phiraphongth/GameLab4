@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://bvoon20abmdym"]
 
 [ext_resource type="Texture2D" uid="uid://b1vbi75pc8vhg" path="res://Assets/Spritesheet/student_thai.png" id="1_jda5o"]
-[ext_resource type="Texture2D" uid="uid://b7f4d7rpedxw3" path="res://Assets/Spritesheet/WandT2.png" id="2_w1wrk"]
+[ext_resource type="Texture2D" uid="uid://c8glsyny367iy" path="res://Assets/Spritesheet/Left Hand.png" id="2_clr1l"]
+[ext_resource type="Texture2D" uid="uid://chdr5ertahwqd" path="res://Assets/Spritesheet/Head.png" id="2_w1wrk"]
+[ext_resource type="Texture2D" uid="uid://cpqd2as6nh6wk" path="res://Assets/Spritesheet/Left Arm.png" id="3_hu4dm"]
+[ext_resource type="Texture2D" uid="uid://ri4sb4ts24vb" path="res://Assets/Spritesheet/Face 01.png" id="3_laceu"]
+[ext_resource type="Texture2D" uid="uid://bxq8r6sfweb3f" path="res://ลูกอม2.png" id="3_w1wrk"]
+[ext_resource type="Texture2D" uid="uid://d0o566rfgck1p" path="res://Assets/Spritesheet/Body.png" id="5_ugb6f"]
+[ext_resource type="Texture2D" uid="uid://d0c780f6gdrfy" path="res://Assets/Spritesheet/Right Hand.png" id="8_ugb6f"]
+[ext_resource type="Texture2D" uid="uid://b07u4dg4ou3t1" path="res://Assets/Spritesheet/Right Leg.png" id="8_vclui"]
+[ext_resource type="Texture2D" uid="uid://kwitul3ntd23" path="res://Assets/Spritesheet/Right Arm.png" id="9_nrx6f"]
+[ext_resource type="Texture2D" uid="uid://bo2q732dd4ifn" path="res://Assets/Spritesheet/Left Leg.png" id="10_nrx6f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_laceu"]
+load_path = "res://.godot/imported/WandT2.png-9d21d6f3f177fab7ae64ca9b1f2b26e4.ctex"
 
 [sub_resource type="Animation" id="Animation_xb0ar"]
 resource_name = "Attack"
@@ -873,12 +885,14 @@ _data = {
 }
 
 [node name="student" type="Node2D" unique_id=1717188345]
+metadata/_edit_vertical_guides_ = [-40.0]
 
 [node name="part" type="Node2D" parent="." unique_id=1526616854]
 
 [node name="WandT2" type="Polygon2D" parent="part" unique_id=186242063]
+visible = false
 position = Vector2(44, -72)
-texture = ExtResource("2_w1wrk")
+texture = SubResource("CompressedTexture2D_laceu")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(19, -25, 19, -23.5, 14.700001, -22, 8, -22, 0.79999924, -11.9, -1.5, -13, -7.3999996, -13, -9.4, -8, -11.700001, -8, -9, 1, -20.9, 12, -24.1, 12, -18.3, 25, -9, 25, 5, 7.700001, 18.5, 0, 21.400002, 0, 27.400002, -17, 28.2, -17, 29.3, -19.1, 27, -22.7, 27, -25)
 uv = PackedVector2Array(51, 7, 51, 8.5, 46.7, 10, 40, 10, 32.8, 20.1, 30.5, 19, 24.6, 19, 22.6, 24, 20.3, 24, 23, 33, 11.1, 44, 7.9, 44, 13.7, 57, 23, 57, 37, 39.7, 50.5, 32, 53.4, 32, 59.4, 15, 60.2, 15, 61.3, 12.9, 59, 9.3, 59, 7)
@@ -886,6 +900,7 @@ polygons = [PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1
 bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head/head2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/LArm", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5), "body/RArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/RLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/RLeg/RLeg2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/LLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/LLeg/LLeg2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LArm" type="Polygon2D" parent="part" unique_id=1197527185]
+visible = false
 position = Vector2(-98.7251, -148.98305)
 texture = ExtResource("1_jda5o")
 skeleton = NodePath("../../Skeleton2D")
@@ -895,6 +910,7 @@ bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/h
 metadata/_edit_lock_ = true
 
 [node name="head" type="Polygon2D" parent="part" unique_id=1426858716]
+visible = false
 position = Vector2(-46.725098, -140.98305)
 texture = ExtResource("1_jda5o")
 skeleton = NodePath("../../Skeleton2D")
@@ -904,6 +920,7 @@ bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 metadata/_edit_lock_ = true
 
 [node name="LLeg" type="Polygon2D" parent="part" unique_id=390376887]
+visible = false
 position = Vector2(-9.725098, -28.983051)
 rotation = 0.35784072
 offset = Vector2(-41.57562, -130.91763)
@@ -915,6 +932,7 @@ bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/h
 metadata/_edit_lock_ = true
 
 [node name="RLeg" type="Polygon2D" parent="part" unique_id=1842434483]
+visible = false
 position = Vector2(3.2749019, -28.983051)
 rotation = -0.2345866
 offset = Vector2(-40.164402, -128.22035)
@@ -926,6 +944,7 @@ bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/head", Packed
 metadata/_edit_lock_ = true
 
 [node name="body" type="Polygon2D" parent="part" unique_id=441875295]
+visible = false
 position = Vector2(-81.7251, -148.98305)
 texture = ExtResource("1_jda5o")
 skeleton = NodePath("../../Skeleton2D")
@@ -935,6 +954,7 @@ bones = ["body", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 metadata/_edit_lock_ = true
 
 [node name="RArm" type="Polygon2D" parent="part" unique_id=562512606]
+visible = false
 position = Vector2(-36.725098, -150.98305)
 texture = ExtResource("1_jda5o")
 skeleton = NodePath("../../Skeleton2D")
@@ -949,6 +969,34 @@ metadata/_edit_lock_ = true
 position = Vector2(2, -38)
 rest = Transform2D(1, 0, 0, 1, 2, -38)
 
+[node name="LArm" type="Bone2D" parent="Skeleton2D/body" unique_id=2120276615]
+position = Vector2(11, -16)
+scale = Vector2(0.99999934, 0.99999934)
+rest = Transform2D(1, 0, 0, 1, 11, -16)
+
+[node name="LeftHand" type="Sprite2D" parent="Skeleton2D/body/LArm" unique_id=614770402]
+position = Vector2(17.00001, -4.0000005)
+rotation = -1.5511488
+scale = Vector2(0.2363283, 0.2363283)
+texture = ExtResource("2_clr1l")
+
+[node name="LeftArm" type="Sprite2D" parent="Skeleton2D/body/LArm" unique_id=900730902]
+position = Vector2(4.000002, -1.0000038)
+rotation = -1.6822993
+scale = Vector2(0.25328305, 0.25328305)
+texture = ExtResource("3_hu4dm")
+
+[node name="ลูกอม2" type="Sprite2D" parent="Skeleton2D/body/LArm" unique_id=1651586502]
+position = Vector2(14.000008, -39.000023)
+rotation = -0.029597402
+scale = Vector2(0.19366398, 0.22539255)
+texture = ExtResource("3_w1wrk")
+
+[node name="Body" type="Sprite2D" parent="Skeleton2D/body" unique_id=1250421922]
+position = Vector2(-4, -8.000004)
+scale = Vector2(0.21250002, 0.21250002)
+texture = ExtResource("5_ugb6f")
+
 [node name="head" type="Bone2D" parent="Skeleton2D/body" unique_id=2110505577]
 position = Vector2(-2, -32)
 scale = Vector2(0.99999964, 0.99999964)
@@ -958,23 +1006,50 @@ rest = Transform2D(1, 0, 0, 1, -2, -32)
 position = Vector2(0, -52)
 rest = Transform2D(1, 0, 0, 1, 0, -52)
 
-[node name="LArm" type="Bone2D" parent="Skeleton2D/body" unique_id=2120276615]
-position = Vector2(11, -16)
-scale = Vector2(0.99999934, 0.99999934)
-rest = Transform2D(1, 0, 0, 1, 11, -16)
+[node name="Head" type="Sprite2D" parent="Skeleton2D/body/head" unique_id=1119390078]
+position = Vector2(1.0000004, -26.000008)
+scale = Vector2(0.1729167, 0.1729167)
+texture = ExtResource("2_w1wrk")
 
-[node name="RArm" type="Bone2D" parent="Skeleton2D/body" unique_id=208622858]
-position = Vector2(-13, -18)
-rest = Transform2D(1, 0, 0, 1, -13, -18)
+[node name="Face01" type="Sprite2D" parent="Skeleton2D/body/head" unique_id=1833986450]
+position = Vector2(10.000004, -16.000008)
+scale = Vector2(0.17555563, 0.16458341)
+texture = ExtResource("3_laceu")
 
 [node name="RLeg" type="Bone2D" parent="Skeleton2D/body" unique_id=1668380208]
 position = Vector2(4, 14)
 scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(1, 0, 0, 1, 4, 14)
 
+[node name="RightLeg" type="Sprite2D" parent="Skeleton2D/body/RLeg" unique_id=420132991]
+position = Vector2(-17.000006, 6.000002)
+scale = Vector2(0.26367196, 0.26367196)
+texture = ExtResource("8_vclui")
+
+[node name="RArm" type="Bone2D" parent="Skeleton2D/body" unique_id=208622858]
+position = Vector2(-13, -18)
+rest = Transform2D(1, 0, 0, 1, -13, -18)
+
+[node name="RightHand" type="Sprite2D" parent="Skeleton2D/body/RArm" unique_id=1668190911]
+position = Vector2(-6.999998, 23)
+rotation = 1.3365601
+scale = Vector2(0.24369858, 0.24369858)
+texture = ExtResource("8_ugb6f")
+
+[node name="RightArm" type="Sprite2D" parent="Skeleton2D/body/RArm" unique_id=1407825595]
+position = Vector2(-3, 5)
+rotation = -0.07309012
+scale = Vector2(0.30078116, 0.30078116)
+texture = ExtResource("9_nrx6f")
+
 [node name="LLeg" type="Bone2D" parent="Skeleton2D/body" unique_id=694126583]
 position = Vector2(-14, 15)
 rest = Transform2D(1, 0, 0, 1, -14, 15)
+
+[node name="LeftLeg" type="Sprite2D" parent="Skeleton2D/body/LLeg" unique_id=2142735863]
+position = Vector2(23, 5)
+scale = Vector2(0.26171878, 0.26171878)
+texture = ExtResource("10_nrx6f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=39790286]
 libraries/ = SubResource("AnimationLibrary_lascq")

@@ -1,3 +1,7 @@
+# GameLab4: 2D Platformer Game
+By 673380526-6 พีรพงษ์ ทองฤทธิ์
+-**Game Story**- ณ หมู่บ้านแห่ง1มีชายเลี้ยงแกะฝูง1ได้พาแกะของเขาไปกินหญ้าที่สวนหลังหมู่บ้านพอตกเย็นขณะกลับบ้านได้มีหมาป่ามาลักพาแกะของเขาไปชายเลี้ยงแกะจึงต้องตามล่าหมาป่าเพื่อนำแกะของเขากลับคืนมา
+
 # 2D Platformer Starter Kit
 
 This starter kit provides all the essential mechanics needed to build a complete 2D platformer game in Godot 4.7. It is designed as a hands-on learning resource for students taking the **Computer Game Development** course at the **College of Computing, Khon Kaen University**.

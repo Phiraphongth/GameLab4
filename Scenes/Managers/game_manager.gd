@@ -15,6 +15,7 @@ var player :Player = null
 var current_level : String = "res://Scenes/Levels/level_01.tscn"
 var save_path := "user://game.save"
 var save_player_position = Vector2.ZERO
+var is_dying : bool = false
 
 # Adds 1 to score variable
 func add_score(v=1):
@@ -28,6 +29,7 @@ func restart():
 	score = 0
 	hp = 100
 	life = 4
+	is_dying = false
 	save_player_position = Vector2.ZERO
 	get_tree().change_scene_to_file("res://Scenes/Levels/level_01.tscn")
 
@@ -52,11 +54,17 @@ func add_life():
 		life += 1
 
 func death():
+	# กันไม่ให้ทำงานซ้อนกัน — ตกแมพ/โดนกับดักรัว ๆ ต้องเสียหัวใจแค่ดวงเดียว
+	if is_dying:
+		return
+	is_dying = true
 	if player != null:
 		await player.death_tween()
 	life -= 1
+	hp = max_hp            # เกิดใหม่พร้อมเลือดเต็ม ไม่งั้นดาเมจถัดไปจะฆ่าซ้ำทันที
+	is_dying = false
 	if life <= 0:
-		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")	
+		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
 
 func save_option():
 	var file = FileAccess.open("user://option.json", FileAccess.WRITE)
