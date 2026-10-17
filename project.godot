@@ -88,3 +88,7 @@ Shoot={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="item"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.23137255, 0.80392157, 0.95294118, 1)
