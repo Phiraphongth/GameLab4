@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://b6tvaxw54wsq0"]
+[gd_scene load_steps=5 format=3 uid="uid://b6tvaxw54wsq0"]
 
 [ext_resource type="Script" uid="uid://tkynu7pd01lh" path="res://Scenes/Levels/menu.gd" id="1_hq2ph"]
 [ext_resource type="Texture2D" uid="uid://b5x75hqlx4a6n" path="res://back.jpg" id="2_7pnm7"]
 [ext_resource type="Script" uid="uid://bev7h5wjl8onx" path="res://Scenes/Levels/btn_exit.gd" id="3_lli10"]
+[ext_resource type="Theme" uid="uid://bi3r1qks25ixq" path="res://Scenes/Prefabs/menu_theme.tres" id="4_theme"]
 
 [node name="Node2D" type="Node2D" unique_id=827773846]
 script = ExtResource("1_hq2ph")
@@ -15,73 +16,68 @@ texture = ExtResource("2_7pnm7")
 [node name="UI" type="Control" parent="." unique_id=2061607031]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 524.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("4_theme")
 
-[node name="btnStart" type="Button" parent="UI" unique_id=843125025]
+[node name="Panel" type="Panel" parent="UI" unique_id=1008644539]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -76.5
-offset_top = 155.0
-offset_right = 78.5
-offset_bottom = 219.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -195.0
+offset_right = 168.0
+offset_bottom = 235.0
 grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Menu" type="VBoxContainer" parent="UI" unique_id=2048977612]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -167.0
+offset_right = 140.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="btnStart" type="Button" parent="UI/Menu" unique_id=843125025]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
 text = "Start"
 
-[node name="btnContinue" type="Button" parent="UI" unique_id=922351197]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -76.5
-offset_top = 224.0
-offset_right = 78.5
-offset_bottom = 288.0
-grow_horizontal = 2
+[node name="btnContinue" type="Button" parent="UI/Menu" unique_id=922351197]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
 text = "Continue"
 
-[node name="btnOption" type="Button" parent="UI" unique_id=606273451]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.0
-offset_top = 294.0
-offset_right = 78.0
-offset_bottom = 358.0
-grow_horizontal = 2
+[node name="btnOption" type="Button" parent="UI/Menu" unique_id=606273451]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
 text = "Option"
 
-[node name="btnCredit" type="Button" parent="UI" unique_id=378335107]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.5
-offset_top = 366.0
-offset_right = 77.5
-offset_bottom = 430.0
-grow_horizontal = 2
+[node name="btnCredit" type="Button" parent="UI/Menu" unique_id=378335107]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
 text = "Credit"
 
-[node name="btnExit" type="Button" parent="UI" unique_id=1943181039]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -76.5
-offset_top = 439.0
-offset_right = 78.5
-offset_bottom = 503.0
-grow_horizontal = 2
+[node name="btnExit" type="Button" parent="UI/Menu" unique_id=1943181039]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
 text = "Exit"
 script = ExtResource("3_lli10")
 
-[connection signal="pressed" from="UI/btnStart" to="." method="_on_btn_start_pressed"]
-[connection signal="pressed" from="UI/btnContinue" to="." method="_on_btn_continue_pressed"]
-[connection signal="pressed" from="UI/btnOption" to="." method="_on_btn_option_pressed"]
-[connection signal="pressed" from="UI/btnCredit" to="." method="_on_btn_credit_pressed"]
-[connection signal="pressed" from="UI/btnExit" to="." method="_on_btn_credit_pressed"]
-[connection signal="pressed" from="UI/btnExit" to="UI/btnExit" method="_on_pressed"]
+[connection signal="pressed" from="UI/Menu/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="UI/Menu/btnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="UI/Menu/btnOption" to="." method="_on_btn_option_pressed"]
+[connection signal="pressed" from="UI/Menu/btnCredit" to="." method="_on_btn_credit_pressed"]
+[connection signal="pressed" from="UI/Menu/btnExit" to="UI/Menu/btnExit" method="_on_pressed"]

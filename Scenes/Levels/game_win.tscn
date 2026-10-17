@@ -1,35 +1,91 @@
-[gd_scene format=3 uid="uid://b46lxwc5r3dy4"]
+[gd_scene load_steps=5 format=3 uid="uid://b46lxwc5r3dy4"]
 
-[ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="1_5l1gm"]
 [ext_resource type="PackedScene" uid="uid://puc4l62gx6et" path="res://Scenes/Prefabs/button_exit.tscn" id="2_81byk"]
+[ext_resource type="Theme" uid="uid://d3eng5cvycmjf" path="res://Scenes/Prefabs/theme.tres" id="1_5l1gm"]
+[ext_resource type="Theme" uid="uid://bi3r1qks25ixq" path="res://Scenes/Prefabs/menu_theme.tres" id="9_mtheme"]
+[ext_resource type="Texture2D" uid="uid://b5x75hqlx4a6n" path="res://back.jpg" id="8_back"]
 
 [node name="GameOver" type="Node2D" unique_id=826370530]
 
-[node name="Title" type="Label" parent="." unique_id=1965507633]
-offset_left = 438.0
-offset_top = 225.0
-offset_right = 742.0
-offset_bottom = 269.0
+[node name="Back" type="Sprite2D" parent="." unique_id=1012884411]
+position = Vector2(578.5, 322)
+scale = Vector2(1.5584239, 1.8550724)
+texture = ExtResource("8_back")
+
+[node name="UI" type="Control" parent="." unique_id=1443290617]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("9_mtheme")
+
+[node name="Dim" type="ColorRect" parent="UI" unique_id=380174562]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Title" type="Label" parent="UI" unique_id=1965507633]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 158.0
+offset_right = 320.0
+offset_bottom = 254.0
+grow_horizontal = 2
 theme = ExtResource("1_5l1gm")
 theme_override_colors/font_color = Color(0.36862746, 0.9137255, 0.1882353, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 33
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
 text = "You Win"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="btnExit" parent="." unique_id=1633606001 instance=ExtResource("2_81byk")]
-offset_left = 438.0
-offset_top = 359.0
-offset_right = 564.0
-offset_bottom = 413.0
+[node name="Panel" type="Panel" parent="UI" unique_id=1726330048]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 36.0
+offset_right = 300.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Row" type="HBoxContainer" parent="UI" unique_id=921558374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = 60.0
+offset_right = 276.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="btnExit" parent="UI/Row" unique_id=1633606001 instance=ExtResource("2_81byk")]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Exit to Menu"
 
-[node name="btnPlay" parent="." unique_id=1146872882 instance=ExtResource("2_81byk")]
-offset_left = 597.0
-offset_top = 359.0
-offset_right = 723.0
-offset_bottom = 413.0
+[node name="btnPlay" parent="UI/Row" unique_id=1146872882 instance=ExtResource("2_81byk")]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_horizontal = 3
 shortcut = null
 text = "Play Again"
+restart_game = true
